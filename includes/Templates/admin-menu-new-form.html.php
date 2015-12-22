@@ -87,7 +87,8 @@
 </script>
 
 <script id="nf-tmpl-main-content-loading" type="text/template">
-    Loading...
+    <img src="<?php echo Ninja_Forms::$url;?>">
+    <!--
     <div class="nf-loading-content">
         <ul>
             <li></li>
@@ -95,6 +96,7 @@
             <li></li>
         </ul>
     </div>
+    -->
 </script>
 
 <script id="nf-tmpl-main-content-actions-empty" type="text/template">
