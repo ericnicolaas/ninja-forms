@@ -1,11 +1,13 @@
-define( ['views/fields/fieldItem', 'views/fields/mainContentEmpty'], function( mainContentFieldView, mainContentFieldEmptyView ) {
+define( ['views/fields/fieldItem', 'views/fields/mainContentEmpty', 'views/app/mainContentLoading'], function( mainContentFieldView, mainContentFieldEmptyView, mainContentLoadingView ) {
 	var view = Marionette.CollectionView.extend( {
 		tagName: 'div',
 		childView: mainContentFieldView,
 		emptyView: mainContentFieldEmptyView,
+		loadingView: mainContentLoadingView,
 		reorderOnSort: true,
 
 		initialize: function() {
+			this.setupMarionetteLoading();
 			nfRadio.channel( 'fields' ).reply( 'get:sortableEl', this.getSortableEl, this );
 		},
 
