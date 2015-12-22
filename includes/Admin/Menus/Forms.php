@@ -47,11 +47,12 @@ final class NF_Admin_Menus_Forms extends NF_Abstracts_Menu
             wp_localize_script( 'nf-builder', 'nfAdmin', array(
                 'ajaxNonce' => wp_create_nonce( 'ninja_forms_ajax_nonce' ),
                 'requireBaseUrl' => Ninja_Forms::$url . 'assets/js/',
-                'previewurl' => site_url() . '/?nf_preview_form=' . $_GET[ 'form_id' ],
-                'wp_locale' => $wp_locale->number_format
-            ));
+                'previewurl' => site_url() . '/?nf_preview_form=' . absint( $_GET[ 'form_id' ] ),
+                'wp_locale' => $wp_locale->number_format,
+                'formID'    => absint( $_GET[ 'form_id' ] )
+            ) );
 
-            delete_user_option( get_current_user_id(), 'nf_form_preview_' . $_GET[ 'form_id' ] );
+            delete_user_option( get_current_user_id(), 'nf_form_preview_' . absint( $_GET[ 'form_id' ] ) );
 
             if( ! isset( $_GET[ 'ajax' ] ) ) {
                 $this->_localize_form_data($_GET['form_id']);

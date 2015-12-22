@@ -10,7 +10,9 @@ define( ['models/fields/fieldCollection', 'models/fields/fieldModel'], function(
 	var controller = Marionette.Object.extend( {
 		initialize: function() {
 			// Load our field collection from our localized form data
-			this.collection = new fieldCollection( preloadedFormData.fields );
+			this.collection = new fieldCollection();
+			this.collection.fetch();
+			this.collection.on( 'reset', function() { console.log( this.collection ) } );
 			// Set our removedIDs to an empty object. This will be populated when a field is removed so that we can add it to our 'deleted_fields' object.
 			this.collection.removedIDs = {};
 

@@ -14,6 +14,7 @@ define( ['models/fields/fieldModel'], function( fieldModel ) {
 		model: fieldModel,
 		comparator: 'order',
 		tmpNum: 1,
+		url: ajaxurl + '?action=nf_builder&security=' + nfAdmin.ajaxNonce + '&form=' + nfAdmin.formID,
 
 		initialize: function() {
 			this.on( 'add', this.addField, this );
