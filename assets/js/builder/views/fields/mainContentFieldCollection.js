@@ -2,8 +2,8 @@ define( ['views/fields/fieldItem', 'views/fields/mainContentEmpty', 'views/app/m
 	var view = Marionette.CollectionView.extend( {
 		tagName: 'div',
 		childView: mainContentFieldView,
-		emptyView: mainContentFieldEmptyView,
-		loadingView: mainContentLoadingView,
+		// emptyView: mainContentFieldEmptyView,
+		emptyView: mainContentLoadingView,
 		reorderOnSort: true,
 
 		initialize: function() {
