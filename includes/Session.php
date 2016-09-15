@@ -69,6 +69,12 @@ class NF_Session {
      */
     public function init() {
         $this->session = WP_Session::get_instance();
+
+        /*
+         * Manually Set Cookie
+         */
+        $this->session->set_cookie();
+
         return $this->session;
     }
     /**
@@ -102,11 +108,6 @@ class NF_Session {
      * @return string Session variable
      */
     public function set( $key, $value ) {
-
-        /*
-         * Manually Set Cookie
-         */
-        $this->session->set_cookie();
 
         $key = sanitize_key( $key );
         if ( is_array( $value ) ) {
